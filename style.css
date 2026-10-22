@@ -509,3 +509,19 @@ kbd {
 
 .photo.rendu { background: #fff; }
 .photo.rendu img { object-fit: contain; }
+
+.portrait {
+  display: block;
+  width: 7.5rem;
+  height: auto;
+  aspect-ratio: 170 / 191;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid var(--bleu);
+  margin-bottom: 1.75rem;
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--bleu) 15%, transparent);
+}
+
+@media (max-width: 720px) {
+  .portrait { width: 6rem; margin-bottom: 1.25rem; }
+}
