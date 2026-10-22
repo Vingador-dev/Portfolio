@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,133 +7,179 @@
 <meta name="description" content="Projets de Paulo Tchicaya, étudiant ingénieur en mécatronique à l'ENSIBS et en master I-MARS. Recherche un stage de fin d'études de 6 mois à partir de février 2027.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="hero">
-  <div class="wrap">
+  <canvas id="scope" aria-hidden="true"></canvas>
+  <div class="wrap hero-contenu">
     <h1>Paulo<br>Tchicaya</h1>
-    <p class="intro">Étudiant ingénieur en mécatronique. Je fais marcher ensemble des cartes, des capteurs et des moteurs, du dessin jusqu'aux essais.</p>
-    <p class="status"><span class="led" aria-hidden="true"></span>Je cherche un stage de fin d'études de 6 mois en systèmes embarqués, à partir de février 2027.</p>
-    <nav class="contact" aria-label="Contact">
-      <a href="mailto:paulo.etudiant@gmail.com">paulo.etudiant@gmail.com</a>
-      <a href="https://www.linkedin.com/in/paulo-tchicaya">LinkedIn</a>
-      <a href="https://github.com/Vingador-dev">GitHub</a>
-    </nav>
+    <p class="intro">Étudiant ingénieur en mécatronique et en master d'électronique. Je fais marcher ensemble des cartes, des capteurs et des moteurs, du dessin jusqu'aux essais.</p>
+    <p class="status"><span class="led" aria-hidden="true"></span><span>Je cherche un stage de fin d'études de 6 mois en systèmes embarqués. Début possible le 1er février 2027, <span id="compte">dans quelques semaines</span>.</span></p>
+    <div class="actions">
+      <button type="button" class="bouton" id="copier" data-mail="paulo.etudiant@gmail.com">Copier mon adresse mail</button>
+      <a class="bouton secondaire" href="https://www.linkedin.com/in/paulo-tchicaya">LinkedIn</a>
+      <a class="bouton secondaire" href="https://github.com/Vingador-dev">GitHub</a>
+    </div>
+    <p class="mesure" id="mesure" aria-hidden="true">Bougez la souris sur le signal</p>
   </div>
 </header>
 
-<main class="wrap">
+<div class="wrap">
 
-  <section class="parcours" aria-labelledby="parcours-titre">
-    <h2 id="parcours-titre">Parcours</h2>
-    <dl>
-      <div><dt>2026 – 2027</dt><dd>Master 2 I-MARS, électronique et systèmes embarqués, Université Bretagne Sud</dd></div>
-      <div><dt>2024 – 2027</dt><dd>Cycle ingénieur mécatronique, ENSIBS, Lorient (double diplôme avec I-MARS)</dd></div>
-      <div><dt>2026</dt><dd>Stage ingénieur R&amp;D chez Cinq Degrés Ouest, Lorient</dd></div>
-    </dl>
+  <section class="terminal" aria-label="Terminal">
+    <div class="term-sortie" id="sortie" aria-live="polite">
+      <p>Tapez <kbd>aide</kbd> pour voir les commandes, ou ouvrez les sections plus bas.</p>
+    </div>
+    <form class="term-ligne" id="term">
+      <label for="commande">paulo@lorient:~$</label>
+      <input id="commande" autocomplete="off" spellcheck="false" placeholder="projets">
+    </form>
   </section>
 
-  <section aria-labelledby="projets-titre">
-    <h2 id="projets-titre">Projets</h2>
+  <div class="barre">
+    <button type="button" class="lien" id="tout">Tout ouvrir</button>
+    <button type="button" class="lien" id="theme">Mode clair</button>
+  </div>
 
-    <article class="projet">
-      <figure class="photo">
-        <span>Photo à venir</span>
-        <img src="images/casse-pince.jpg" alt="Prototype Casse-Pince motorisé" onerror="this.remove()">
-      </figure>
-      <div class="texte">
-        <p class="cadre">Stage, Cinq Degrés Ouest, 2026</p>
-        <h3>Deux machines pour casser les pinces de homard</h3>
-        <p>Il n'existait rien sur le marché pour décortiquer les pinces de homard sans abîmer la chair. J'ai conçu deux prototypes : le Casse-Dactylus, avec un système à crémaillère, et le Casse-Pince, avec un ressort qui frappe la pince.</p>
-        <p>J'ai ensuite motorisé le Casse-Pince et écrit tout le programme de commande. Un capteur de distance détecte la pince, le moteur arme le ressort, et un fin de course sert de point de départ.</p>
-        <p class="materiel">SolidWorks, impression 3D, moteur pas à pas NEMA17, driver TMC2209, Arduino, capteur ToF VL53L1X, C++ (AccelStepper)</p>
+  <details class="module" id="parcours">
+    <summary><span class="titre">Parcours</span><span class="resume">Formation et expériences</span></summary>
+    <div class="module-corps">
+      <h3>Formation</h3>
+      <ol class="ligne-temps">
+        <li><span class="date">2026 – 2027</span><div><strong>Master 2 I-MARS</strong>Électronique et systèmes embarqués, option recherche. Université Bretagne Sud.</div></li>
+        <li><span class="date">2024 – 2027</span><div><strong>Cycle ingénieur mécatronique</strong>ENSIBS, Lorient. En double diplôme avec I-MARS.</div></li>
+        <li><span class="date">2022 – 2024</span><div><strong>Prépa intégrée et BUT GIM</strong>Génie industriel et maintenance. ENSIBS et IUT de Lorient.</div></li>
+      </ol>
+      <h3>Expériences</h3>
+      <ol class="ligne-temps">
+        <li><span class="date">Mai – août 2026</span><div><strong>Stage ingénieur R&amp;D, Cinq Degrés Ouest, Lorient</strong>Conception et motorisation de deux prototypes de machines, étude d'automatisation d'une ligne de production.</div></li>
+        <li><span class="date">Août – sept. 2026</span><div><strong>Opérateur de production, Cinq Degrés Ouest</strong>Travail en équipe de jour et de nuit, à la suite du stage.</div></li>
+        <li><span class="date">Févr. – mai 2024</span><div><strong>Technicien de maintenance, Lecapitaine, Saint-Lô</strong>Analyse de pannes et validation d'équipements industriels, rédaction de procédures.</div></li>
+      </ol>
+    </div>
+  </details>
+
+  <details class="module" id="projets">
+    <summary><span class="titre">Projets</span><span class="resume"><span id="nb-projets">6</span> projets</span></summary>
+    <div class="module-corps">
+      <div class="filtres" role="group" aria-label="Filtrer par technologie">
+        <button type="button" class="filtre actif" data-filtre="tout" aria-pressed="true">Tous</button>
+        <button type="button" class="filtre" data-filtre="arduino" aria-pressed="false">Arduino</button>
+        <button type="button" class="filtre" data-filtre="esp32" aria-pressed="false">ESP32</button>
+        <button type="button" class="filtre" data-filtre="stm32" aria-pressed="false">STM32</button>
+        <button type="button" class="filtre" data-filtre="raspberry" aria-pressed="false">Raspberry Pi</button>
+        <button type="button" class="filtre" data-filtre="moteurs" aria-pressed="false">Moteurs</button>
+        <button type="button" class="filtre" data-filtre="pcb" aria-pressed="false">PCB</button>
+        <button type="button" class="filtre" data-filtre="vision" aria-pressed="false">Vision et IA</button>
       </div>
-    </article>
 
-    <article class="projet">
-      <figure class="photo">
-        <span>Photo à venir</span>
-        <img src="images/robot-voix.jpg" alt="Robot mobile commandé par la voix" onerror="this.remove()">
-      </figure>
-      <div class="texte">
-        <p class="cadre">Projet d'école, ENSIBS</p>
-        <h3>Robot mobile commandé par la voix</h3>
-        <p>Un robot qui se déplace selon des ordres donnés à la voix. J'ai travaillé sur l'intégration des capteurs et des moteurs, la programmation des cartes, puis les tests jusqu'à ce que le robot réponde correctement.</p>
-        <p class="materiel">STM32, ESP32, C, capteurs, pilotage de moteurs</p>
+      <article class="projet" data-tags="arduino moteurs">
+        <figure class="photo"><span>Photo à venir</span><img src="images/casse-pince.jpg" alt="Prototype Casse-Pince motorisé" onerror="this.remove()"></figure>
+        <div class="texte">
+          <p class="cadre">Stage, Cinq Degrés Ouest, 2026</p>
+          <h3>Deux machines pour casser les pinces de homard</h3>
+          <p>Il n'existait rien sur le marché pour décortiquer les pinces de homard. J'ai conçu deux prototypes : le Casse-Dactylus, avec un système à crémaillère, et le Casse-Pince, avec un ressort qui frappe la pince.</p>
+          <p>J'ai ensuite motorisé le Casse-Pince et écrit tout le programme de commande. Un capteur de distance détecte la pince, le moteur arme le ressort, et un fin de course sert de point de départ.</p>
+          <ul class="tags"><li>SolidWorks</li><li>Impression 3D</li><li>NEMA17</li><li>TMC2209</li><li>Arduino</li><li>VL53L1X</li><li>C++</li></ul>
+        </div>
+      </article>
+
+      <article class="projet" data-tags="stm32 esp32 moteurs">
+        <figure class="photo"><span>Photo à venir</span><img src="images/robot-voix.jpg" alt="Robot mobile commandé par la voix" onerror="this.remove()"></figure>
+        <div class="texte">
+          <p class="cadre">Projet d'école, ENSIBS</p>
+          <h3>Robot mobile commandé par la voix</h3>
+          <p>Un robot qui se déplace selon des ordres donnés à la voix. J'ai travaillé sur l'intégration des capteurs et des moteurs, la programmation des cartes, puis les tests jusqu'à ce que le robot réponde correctement.</p>
+          <ul class="tags"><li>STM32</li><li>ESP32</li><li>C</li><li>Capteurs</li><li>Moteurs</li></ul>
+        </div>
+      </article>
+
+      <article class="projet" data-tags="arduino esp32 pcb moteurs">
+        <figure class="photo"><span>Photo à venir</span><img src="images/voiture-robot.jpg" alt="Voiture robot radiocommandée" onerror="this.remove()"></figure>
+        <div class="texte">
+          <p class="cadre">Projet perso</p>
+          <h3>Voiture robot radiocommandée</h3>
+          <p>Une voiture pilotée à distance par une liaison radio, avec des sons joués par un petit lecteur MP3. J'ai dessiné et fait fabriquer la carte électronique au Fablab de l'école.</p>
+          <ul class="tags"><li>Arduino</li><li>ESP32</li><li>NRF24L01</li><li>DFPlayer Mini</li><li>EasyEDA</li></ul>
+        </div>
+      </article>
+
+      <article class="projet" data-tags="esp32 vision">
+        <figure class="photo"><span>Photo à venir</span><img src="images/esp32-cam.jpg" alt="Détection de visage sur ESP32-CAM" onerror="this.remove()"></figure>
+        <div class="texte">
+          <p class="cadre">Projet perso</p>
+          <h3>Détection de visage sur ESP32-CAM</h3>
+          <p>Une petite caméra à quelques euros qui envoie sa vidéo en direct sur le réseau et repère les visages, directement sur la carte.</p>
+          <ul class="tags"><li>ESP32-CAM</li><li>C++</li><li>Streaming vidéo</li><li>Vision</li></ul>
+        </div>
+      </article>
+
+      <article class="projet" data-tags="raspberry vision">
+        <figure class="photo"><span>Photo à venir</span><img src="images/raspberry-ia.jpg" alt="Raspberry Pi qui envoie des images à une IA" onerror="this.remove()"></figure>
+        <div class="texte">
+          <p class="cadre">Projet perso</p>
+          <h3>Caméra et IA générative sur Raspberry Pi</h3>
+          <p>Un Raspberry Pi récupère l'image d'une caméra, l'envoie à une IA générative pour l'analyser, et affiche la réponse sur un écran.</p>
+          <ul class="tags"><li>Raspberry Pi 3B</li><li>Linux</li><li>Python</li><li>API Gemini</li></ul>
+        </div>
+      </article>
+
+      <article class="projet" data-tags="raspberry">
+        <figure class="photo"><span>Photo à venir</span><img src="images/imprimante-3d.jpg" alt="Surveillance à distance de l'imprimante 3D" onerror="this.remove()"></figure>
+        <div class="texte">
+          <p class="cadre">Projet perso</p>
+          <h3>Surveillance à distance de mon imprimante 3D</h3>
+          <p>Un Raspberry Pi sert de serveur vidéo pour surveiller mes impressions depuis mon téléphone, où que je sois, avec un accès sécurisé à mon réseau.</p>
+          <ul class="tags"><li>Raspberry Pi</li><li>Linux</li><li>ustreamer</li><li>Tailscale</li><li>SSH</li></ul>
+        </div>
+      </article>
+
+      <p class="vide" id="vide" hidden>Aucun projet avec ce filtre.</p>
+    </div>
+  </details>
+
+  <details class="module" id="competences">
+    <summary><span class="titre">Compétences</span><span class="resume">Embarqué, électronique, prototypage</span></summary>
+    <div class="module-corps">
+      <div class="grille-comp">
+        <div><h3>Systèmes embarqués</h3><p>Microcontrôleurs STM32, ESP32 et Arduino en C et C++, interfaçage de capteurs et d'actionneurs, VHDL</p></div>
+        <div><h3>Micro-ordinateurs</h3><p>Raspberry Pi sous Linux, ROS, vision par ordinateur</p></div>
+        <div><h3>Électronique</h3><p>Schématiques et routage de PCB (Eagle, EasyEDA), traitement du signal, MATLAB</p></div>
+        <div><h3>Prototypage</h3><p>SolidWorks, impression 3D, motorisation (moteurs pas à pas, drivers)</p></div>
       </div>
-    </article>
+      <h3>Langues</h3>
+      <ul class="langues">
+        <li><span>Portugais</span><span class="jauge" style="--niveau:100%"></span><span>Langue maternelle</span></li>
+        <li><span>Français</span><span class="jauge" style="--niveau:95%"></span><span>Courant</span></li>
+        <li><span>Anglais</span><span class="jauge" style="--niveau:70%"></span><span>B2</span></li>
+        <li><span>Espagnol</span><span class="jauge" style="--niveau:55%"></span><span>B1</span></li>
+      </ul>
+    </div>
+  </details>
 
-    <article class="projet">
-      <figure class="photo">
-        <span>Photo à venir</span>
-        <img src="images/voiture-robot.jpg" alt="Voiture robot radiocommandée" onerror="this.remove()">
-      </figure>
-      <div class="texte">
-        <p class="cadre">Projet perso</p>
-        <h3>Voiture robot radiocommandée</h3>
-        <p>Une voiture pilotée à distance par une liaison radio, avec des sons joués par un petit lecteur MP3. J'ai dessiné et fait fabriquer la carte électronique au Fablab de l'école.</p>
-        <p class="materiel">Arduino, ESP32, module radio NRF24L01, drivers de moteurs, DFPlayer Mini, PCB sous EasyEDA</p>
+  <details class="module" id="hobbys">
+    <summary><span class="titre">Hobbys</span><span class="resume">En dehors des cours</span></summary>
+    <div class="module-corps">
+      <div class="grille-comp">
+        <div><h3>Échecs</h3><p>Licencié dans un club.</p></div>
+        <div><h3>Guitare</h3><p>Deux ans en école de musique.</p></div>
+        <div><h3>Musculation</h3><p>Depuis quatre ans.</p></div>
+        <div><h3>Impression 3D</h3><p>Une imprimante à la maison, que je surveille à distance avec un Raspberry Pi.</p></div>
       </div>
-    </article>
+    </div>
+  </details>
 
-    <article class="projet">
-      <figure class="photo">
-        <span>Photo à venir</span>
-        <img src="images/esp32-cam.jpg" alt="Détection de visage sur ESP32-CAM" onerror="this.remove()">
-      </figure>
-      <div class="texte">
-        <p class="cadre">Projet perso</p>
-        <h3>Détection de visage sur ESP32-CAM</h3>
-        <p>Une petite caméra à quelques euros qui envoie sa vidéo en direct sur le réseau et repère les visages, directement sur la carte.</p>
-        <p class="materiel">ESP32-CAM, C++, streaming vidéo, vision embarquée</p>
-      </div>
-    </article>
-
-    <article class="projet">
-      <figure class="photo">
-        <span>Photo à venir</span>
-        <img src="images/raspberry-ia.jpg" alt="Raspberry Pi qui envoie des images à une IA" onerror="this.remove()">
-      </figure>
-      <div class="texte">
-        <p class="cadre">Projet perso</p>
-        <h3>Caméra et IA générative sur Raspberry Pi</h3>
-        <p>Un Raspberry Pi récupère l'image d'une caméra, l'envoie à une IA générative pour l'analyser, et affiche la réponse sur un écran.</p>
-        <p class="materiel">Raspberry Pi 3B, Linux, Python, API Gemini, caméra IP</p>
-      </div>
-    </article>
-
-    <article class="projet">
-      <figure class="photo">
-        <span>Photo à venir</span>
-        <img src="images/imprimante-3d.jpg" alt="Surveillance à distance de l'imprimante 3D" onerror="this.remove()">
-      </figure>
-      <div class="texte">
-        <p class="cadre">Projet perso</p>
-        <h3>Surveillance à distance de mon imprimante 3D</h3>
-        <p>Un Raspberry Pi sert de serveur vidéo pour surveiller mes impressions depuis mon téléphone, où que je sois, avec un accès sécurisé à mon réseau.</p>
-        <p class="materiel">Raspberry Pi, Linux, ustreamer, Obico, Tailscale, SSH</p>
-      </div>
-    </article>
-  </section>
-
-  <section class="competences" aria-labelledby="competences-titre">
-    <h2 id="competences-titre">Compétences</h2>
-    <ul>
-      <li><strong>Systèmes embarqués</strong> microcontrôleurs STM32, ESP32 et Arduino en C et C++, interfaçage de capteurs et d'actionneurs, VHDL</li>
-      <li><strong>Micro-ordinateurs</strong> Raspberry Pi sous Linux, ROS, vision par ordinateur</li>
-      <li><strong>Électronique</strong> schématiques et routage de PCB (Eagle, EasyEDA), traitement du signal, MATLAB</li>
-      <li><strong>Prototypage</strong> SolidWorks, impression 3D, motorisation (moteurs pas à pas, drivers)</li>
-    </ul>
-  </section>
-
-</main>
+</div>
 
 <footer class="wrap pied">
   <p>Une question sur un projet ? Écrivez-moi à <a href="mailto:paulo.etudiant@gmail.com">paulo.etudiant@gmail.com</a>.</p>
 </footer>
 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
 </body>
 </html>
