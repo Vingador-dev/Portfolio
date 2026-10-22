@@ -10,3 +10,4 @@ Pour ajouter une photo, mettre le fichier dans le dossier images avec le bon nom
 - raspberry-ia.jpg
 - imprimante-3d.jpg
 - base-holonome.jpg
+- robot-ros2.jpg

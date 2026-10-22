@@ -101,7 +101,7 @@ const commandes = {
   aide() {
     ecrire("parcours      va à ma formation et mes expériences");
     ecrire("projets       va à mes projets");
-    ecrire("projets stm32 filtre les projets (arduino, esp32, stm32, raspberry, moteurs, pcb, vision)");
+    ecrire("projets stm32 filtre les projets (arduino, esp32, stm32, raspberry, ros, moteurs, pcb, vision)");
     ecrire("competences   va à mes compétences");
     ecrire("hobbys        va à mes hobbys");
     ecrire("contact       copie mon adresse mail");

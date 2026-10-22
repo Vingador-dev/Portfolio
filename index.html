@@ -78,7 +78,7 @@
   </section>
 
   <section class="module" id="projets">
-    <div class="module-tete"><h2 class="titre">Projets</h2><span class="resume"><span id="nb-projets">6</span> projets</span></div>
+    <div class="module-tete"><h2 class="titre">Projets</h2><span class="resume"><span id="nb-projets">7</span> projets</span></div>
     <div class="module-corps">
       <div class="filtres" role="group" aria-label="Filtrer par technologie">
         <button type="button" class="filtre actif" data-filtre="tout" aria-pressed="true">Tous</button>
@@ -86,6 +86,7 @@
         <button type="button" class="filtre" data-filtre="esp32" aria-pressed="false">ESP32</button>
         <button type="button" class="filtre" data-filtre="stm32" aria-pressed="false">STM32</button>
         <button type="button" class="filtre" data-filtre="raspberry" aria-pressed="false">Raspberry Pi</button>
+        <button type="button" class="filtre" data-filtre="ros" aria-pressed="false">ROS 2</button>
         <button type="button" class="filtre" data-filtre="moteurs" aria-pressed="false">Moteurs</button>
         <button type="button" class="filtre" data-filtre="pcb" aria-pressed="false">PCB</button>
         <button type="button" class="filtre" data-filtre="vision" aria-pressed="false">Vision et IA</button>
@@ -110,6 +111,17 @@
           <p>Un robot rond monté sur des roues omnidirectionnelles, qui peut avancer dans n'importe quelle direction sans avoir à tourner. Des capteurs infrarouges détectent les obstacles pour qu'il se déplace tout seul.</p>
           <p>Les moteurs pas à pas et les capteurs sont gérés par une carte STM32 Nucleo programmée en C. La carte électronique a été dessinée sous Eagle puis gravée à la CNC.</p>
           <ul class="tags"><li>STM32 Nucleo</li><li>C</li><li>Capteurs infrarouges</li><li>Moteurs pas à pas</li><li>Eagle</li><li>CNC</li><li>SolidWorks</li></ul>
+        </div>
+      </article>
+
+      <article class="projet" data-tags="raspberry ros">
+        <figure class="photo"><span>Photo à venir</span><img src="images/robot-ros2.jpg?v=5" alt="Robot piloté par un Raspberry Pi avec un lidar" onerror="this.remove()"></figure>
+        <div class="texte">
+          <p class="cadre">Projet robotique sous ROS 2</p>
+          <h3>Cartographie d'une zone avec un lidar</h3>
+          <p>Un robot piloté par un Raspberry Pi sous ROS 2. Le but principal était de cartographier une zone donnée grâce à un lidar, qui mesure les distances tout autour du robot.</p>
+          <p>J'ai aussi programmé un chemin à suivre, et écrit un programme pour que le robot évite les obstacles tout seul pendant qu'il avance.</p>
+          <ul class="tags"><li>ROS 2</li><li>Raspberry Pi</li><li>Lidar</li><li>Cartographie</li><li>Suivi de chemin</li><li>Évitement d'obstacles</li><li>Linux</li></ul>
         </div>
       </article>
 
@@ -168,7 +180,7 @@
     <div class="module-corps">
       <div class="grille-comp">
         <div><h3>Systèmes embarqués</h3><p>Microcontrôleurs STM32, ESP32 et Arduino en C et C++, interfaçage de capteurs et d'actionneurs, VHDL</p></div>
-        <div><h3>Micro-ordinateurs</h3><p>Raspberry Pi sous Linux, ROS, vision par ordinateur</p></div>
+        <div><h3>Micro-ordinateurs</h3><p>Raspberry Pi sous Linux, ROS 2, lidar et cartographie, vision par ordinateur</p></div>
         <div><h3>Électronique</h3><p>Schématiques et routage de PCB (Eagle, EasyEDA), traitement du signal, MATLAB</p></div>
         <div><h3>Prototypage</h3><p>SolidWorks, impression 3D, motorisation (moteurs pas à pas, drivers)</p></div>
       </div>
