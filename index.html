@@ -8,22 +8,25 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
 <header class="hero">
   <canvas id="scope" aria-hidden="true"></canvas>
   <div class="wrap hero-contenu">
-    <img class="portrait" src="images/photo.jpg" alt="Photo de Paulo Tchicaya" width="170" height="191">
-    <h1>Paulo<br>Tchicaya</h1>
-    <p class="intro">Étudiant ingénieur en mécatronique et en master d'électronique. Je fais marcher ensemble des cartes, des capteurs et des moteurs, du dessin jusqu'aux essais.</p>
-    <p class="status"><span class="led" aria-hidden="true"></span><span>Je cherche un stage de fin d'études de 6 mois en systèmes embarqués. Début possible le 22 février 2027, <span id="compte">dans quelques semaines</span>.</span></p>
-    <div class="actions">
-      <button type="button" class="bouton" id="copier" data-mail="paulo.etudiant@gmail.com">Copier mon adresse mail</button>
-      <a class="bouton secondaire" href="https://www.linkedin.com/in/paulo-tchicaya">LinkedIn</a>
-      <a class="bouton secondaire" href="https://github.com/Vingador-dev">GitHub</a>
+    <div class="hero-texte">
+      <h1>Paulo Tchicaya</h1>
+      <p class="sous-titre">Mécatronique et systèmes embarqués</p>
+      <p class="intro">Étudiant ingénieur en mécatronique et en master d'électronique. Je fais marcher ensemble des cartes, des capteurs et des moteurs, du dessin jusqu'aux essais.</p>
+      <p class="status"><span class="led" aria-hidden="true"></span><span>Je cherche un stage de fin d'études de 6 mois en systèmes embarqués. Début possible le 22 février 2027, <span id="compte">dans quelques semaines</span>.</span></p>
+      <div class="actions">
+        <button type="button" class="bouton" id="copier" data-mail="paulo.etudiant@gmail.com">Copier mon adresse mail</button>
+        <a class="bouton secondaire" href="https://www.linkedin.com/in/paulo-tchicaya">LinkedIn</a>
+        <a class="bouton secondaire" href="https://github.com/Vingador-dev">GitHub</a>
+      </div>
     </div>
+    <figure class="portrait"><img src="images/photo.jpg" alt="Photo de Paulo Tchicaya" width="800" height="1200"></figure>
     <p class="mesure" id="mesure" aria-hidden="true">Bougez la souris sur le signal</p>
   </div>
 </header>
@@ -192,6 +195,6 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="script.js"></script>
+<script src="script.js?v=4"></script>
 </body>
 </html>
