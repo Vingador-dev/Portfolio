@@ -8,9 +8,25 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
+
+<nav class="nav" aria-label="Navigation principale">
+  <div class="wrap nav-contenu">
+    <a class="nav-nom" href="#">Paulo Tchicaya</a>
+    <ul class="nav-liens">
+      <li><a href="#parcours">Parcours</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#hobbys">Hobbys</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button type="button" class="theme" id="theme" aria-label="Passer en mode clair" title="Passer en mode clair">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+    </button>
+  </div>
+</nav>
 
 <header class="hero">
   <canvas id="scope" aria-hidden="true"></canvas>
@@ -35,7 +51,7 @@
 
   <section class="terminal" aria-label="Terminal">
     <div class="term-sortie" id="sortie" aria-live="polite">
-      <p>Tapez <kbd>aide</kbd> pour voir les commandes, ou ouvrez les sections plus bas.</p>
+      <p>Tapez <kbd>aide</kbd> pour voir les commandes, ou utilisez la barre en haut.</p>
     </div>
     <form class="term-ligne" id="term">
       <label for="commande">paulo@lorient:~$</label>
@@ -43,13 +59,8 @@
     </form>
   </section>
 
-  <div class="barre">
-    <button type="button" class="lien" id="tout">Tout ouvrir</button>
-    <button type="button" class="lien" id="theme">Mode clair</button>
-  </div>
-
-  <details class="module" id="parcours">
-    <summary><span class="titre">Parcours</span><span class="resume">Formation et expériences</span></summary>
+  <section class="module" id="parcours">
+    <div class="module-tete"><h2 class="titre">Parcours</h2><span class="resume">Formation et expériences</span></div>
     <div class="module-corps">
       <h3>Formation</h3>
       <ol class="ligne-temps">
@@ -64,10 +75,10 @@
         <li><span class="date">Févr. – mai 2024</span><div><strong>Technicien de maintenance, Lecapitaine, Saint-Lô</strong>Analyse de pannes et validation d'équipements industriels, rédaction de procédures.</div></li>
       </ol>
     </div>
-  </details>
+  </section>
 
-  <details class="module" id="projets">
-    <summary><span class="titre">Projets</span><span class="resume"><span id="nb-projets">6</span> projets</span></summary>
+  <section class="module" id="projets">
+    <div class="module-tete"><h2 class="titre">Projets</h2><span class="resume"><span id="nb-projets">6</span> projets</span></div>
     <div class="module-corps">
       <div class="filtres" role="group" aria-label="Filtrer par technologie">
         <button type="button" class="filtre actif" data-filtre="tout" aria-pressed="true">Tous</button>
@@ -92,7 +103,7 @@
       </article>
 
       <article class="projet" data-tags="stm32 moteurs pcb">
-        <figure class="photo rendu"><span>Photo à venir</span><img src="images/base-holonome.jpg" alt="Rendu 3D de la base robotique holonome, avec ses roues omnidirectionnelles et sa batterie 12 V" onerror="this.remove()"></figure>
+        <figure class="photo"><span>Photo à venir</span><img src="images/base-holonome.jpg" alt="Base robotique holonome vue de dessus, avec ses roues omnidirectionnelles, sa carte STM32 Nucleo, sa batterie et ses câbles plats" onerror="this.remove()"></figure>
         <div class="texte">
           <p class="cadre">Projet d'école en équipe, ENSIBS</p>
           <h3>Base robotique holonome</h3>
@@ -150,10 +161,10 @@
 
       <p class="vide" id="vide" hidden>Aucun projet avec ce filtre.</p>
     </div>
-  </details>
+  </section>
 
-  <details class="module" id="competences">
-    <summary><span class="titre">Compétences</span><span class="resume">Embarqué, électronique, prototypage</span></summary>
+  <section class="module" id="competences">
+    <div class="module-tete"><h2 class="titre">Compétences</h2><span class="resume">Embarqué, électronique, prototypage</span></div>
     <div class="module-corps">
       <div class="grille-comp">
         <div><h3>Systèmes embarqués</h3><p>Microcontrôleurs STM32, ESP32 et Arduino en C et C++, interfaçage de capteurs et d'actionneurs, VHDL</p></div>
@@ -169,10 +180,10 @@
         <li><span>Espagnol</span><span class="jauge" style="--niveau:55%"></span><span>B1</span></li>
       </ul>
     </div>
-  </details>
+  </section>
 
-  <details class="module" id="hobbys">
-    <summary><span class="titre">Hobbys</span><span class="resume">En dehors des cours</span></summary>
+  <section class="module" id="hobbys">
+    <div class="module-tete"><h2 class="titre">Hobbys</h2><span class="resume">En dehors des cours</span></div>
     <div class="module-corps">
       <div class="grille-comp">
         <div><h3>Échecs</h3><p>Licencié dans un club.</p></div>
@@ -181,16 +192,16 @@
         <div><h3>Impression 3D</h3><p>Une imprimante à la maison, que je surveille à distance avec un Raspberry Pi.</p></div>
       </div>
     </div>
-  </details>
+  </section>
 
 </div>
 
-<footer class="wrap pied">
+<footer class="wrap pied" id="contact">
   <p>Une question sur un projet ? Écrivez-moi à <a href="mailto:paulo.etudiant@gmail.com">paulo.etudiant@gmail.com</a>.</p>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="script.js?v=4"></script>
+<script src="script.js?v=5"></script>
 </body>
 </html>

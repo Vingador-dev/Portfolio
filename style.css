@@ -50,6 +50,70 @@ a { color: var(--bleu); text-underline-offset: 0.2em; }
 
 h1, h2, h3 { margin: 0; }
 
+html { scroll-padding-top: 4rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--fond) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--trait);
+}
+
+.nav-contenu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  height: 3.5rem;
+}
+
+.nav-nom {
+  margin-right: auto;
+  color: var(--texte);
+  font-weight: 800;
+  font-stretch: 112%;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-liens {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-liens a {
+  color: var(--gris);
+  font-size: 0.95rem;
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 0.5rem 0;
+}
+
+.nav-liens a:hover { color: var(--texte); }
+
+.theme {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: none;
+  border: 1px solid var(--trait);
+  border-radius: 6px;
+  color: var(--bleu);
+  cursor: pointer;
+}
+
+.theme:hover { color: var(--texte); }
+
 .hero {
   position: relative;
   overflow: hidden;
@@ -210,7 +274,7 @@ h1, h2, h3 { margin: 0; }
 }
 
 .terminal {
-  margin: 2.5rem 0 1rem;
+  margin: 2.5rem 0 2rem;
   background: var(--panneau);
   border: 1px solid var(--trait);
   border-radius: 8px;
@@ -256,54 +320,19 @@ kbd {
 .term-ligne input:focus { outline: none; }
 .term-ligne:focus-within { box-shadow: inset 0 -2px 0 var(--led); border-radius: 0 0 8px 8px; }
 
-.barre {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1.25rem;
-  margin-bottom: 0.5rem;
-}
-
-.lien {
-  background: none;
-  border: none;
-  color: var(--bleu);
-  font: inherit;
-  font-size: 0.95rem;
-  cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-  padding: 0.25rem 0;
-}
-
 .module {
   border-top: 1px solid var(--trait);
 }
 
 .module:last-of-type { border-bottom: 1px solid var(--trait); }
 
-.module summary {
-  list-style: none;
-  cursor: pointer;
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  align-items: center;
+.module-tete {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   gap: 1.5rem;
-  padding: 1.6rem 0.25rem;
+  padding: 2.5rem 0.25rem 1.25rem;
 }
-
-.module summary::-webkit-details-marker { display: none; }
-
-.module summary::after {
-  content: "";
-  width: 0.75rem;
-  height: 0.75rem;
-  border-right: 2px solid var(--bleu);
-  border-bottom: 2px solid var(--bleu);
-  transform: rotate(45deg) translateY(-25%);
-  transition: transform 0.25s;
-}
-
-.module[open] summary::after { transform: rotate(225deg) translateY(-25%); }
 
 .titre {
   font-size: clamp(1.8rem, 5vw, 3rem);
@@ -313,19 +342,10 @@ kbd {
   line-height: 1;
 }
 
-.module summary:hover .titre { color: var(--texte); }
-
 .resume { color: var(--gris); font-size: 0.95rem; text-align: right; }
 
 .module-corps {
   padding: 0.5rem 0.25rem 3rem;
-}
-
-.module[open] .module-corps { animation: ouvre 0.35s ease-out; }
-
-@keyframes ouvre {
-  from { opacity: 0; transform: translateY(-6px); }
-  to { opacity: 1; transform: none; }
 }
 
 .module-corps > h3 {
@@ -546,7 +566,12 @@ kbd {
   .hero { min-height: 30rem; }
   .projet { grid-template-columns: 1fr; gap: 1.25rem; }
   .ligne-temps li { grid-template-columns: 1fr; gap: 0.2rem; }
-  .module summary { grid-template-columns: 1fr auto; }
+  .nav-nom { display: none; }
+  .nav-contenu { gap: 0.5rem; padding: 0 0.75rem; }
+  .nav-liens { flex: 1; justify-content: space-between; gap: 0.4rem; overflow-x: auto; scrollbar-width: none; }
+  .nav-liens a { font-size: clamp(0.72rem, 3.3vw, 0.88rem); padding: 0.8rem 0; }
+  .theme { width: 2rem; height: 2rem; }
+  .module-tete { padding-top: 2rem; }
   .resume { display: none; }
   .langues li { grid-template-columns: 5.5rem 1fr; }
   .langues li span:last-child { grid-column: 2; margin-top: -0.6rem; }
@@ -554,12 +579,9 @@ kbd {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .led, .module[open] .module-corps { animation: none; }
-  body, .toast, .module summary::after { transition: none; }
+  .led { animation: none; }
+  body, .toast { transition: none; }
 }
-
-.photo.rendu { background: #fff; }
-.photo.rendu img { object-fit: contain; }
 
 .photo.video {
   aspect-ratio: 9 / 16;

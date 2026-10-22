@@ -1,5 +1,4 @@
 const racine = document.documentElement;
-const modules = [...document.querySelectorAll(".module")];
 
 function lireStockage(cle) {
   try { return localStorage.getItem(cle); } catch (e) { return null; }
@@ -13,7 +12,9 @@ const boutonTheme = document.getElementById("theme");
 
 function appliquerTheme(theme) {
   racine.dataset.theme = theme;
-  boutonTheme.textContent = theme === "dark" ? "Mode clair" : "Mode sombre";
+  const libelle = theme === "dark" ? "Passer en mode clair" : "Passer en mode sombre";
+  boutonTheme.setAttribute("aria-label", libelle);
+  boutonTheme.title = libelle;
 }
 
 appliquerTheme(lireStockage("theme") || "dark");
@@ -57,24 +58,8 @@ if (jours > 1) compte.textContent = "dans " + jours + " jours";
 else if (jours === 1) compte.textContent = "demain";
 else compte.textContent = "dès maintenant";
 
-const boutonTout = document.getElementById("tout");
-
-function majBoutonTout() {
-  boutonTout.textContent = modules.every(m => m.open) ? "Tout fermer" : "Tout ouvrir";
-}
-
-boutonTout.addEventListener("click", () => {
-  const ouvrir = !modules.every(m => m.open);
-  modules.forEach(m => { m.open = ouvrir; });
-  majBoutonTout();
-});
-
-modules.forEach(m => m.addEventListener("toggle", majBoutonTout));
-
-function ouvrirModule(id) {
-  const m = document.getElementById(id);
-  m.open = true;
-  m.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+function allerA(id) {
+  document.getElementById(id).scrollIntoView();
 }
 
 const projets = [...document.querySelectorAll(".projet")];
@@ -114,25 +99,25 @@ function ecrire(texte, classe) {
 
 const commandes = {
   aide() {
-    ecrire("parcours      ouvre ma formation et mes expériences");
-    ecrire("projets       ouvre mes projets");
+    ecrire("parcours      va à ma formation et mes expériences");
+    ecrire("projets       va à mes projets");
     ecrire("projets stm32 filtre les projets (arduino, esp32, stm32, raspberry, moteurs, pcb, vision)");
-    ecrire("competences   ouvre mes compétences");
-    ecrire("hobbys        ouvre mes hobbys");
+    ecrire("competences   va à mes compétences");
+    ecrire("hobbys        va à mes hobbys");
     ecrire("contact       copie mon adresse mail");
     ecrire("dispo         affiche mes dates de stage");
     ecrire("theme         change le thème");
     ecrire("clear         efface le terminal");
   },
-  parcours() { ouvrirModule("parcours"); ecrire("Section Parcours ouverte.", "ok"); },
+  parcours() { allerA("parcours"); ecrire("Section Parcours.", "ok"); },
   projets(arg) {
-    ouvrirModule("projets");
-    if (!arg) { filtrer("tout"); ecrire("Section Projets ouverte.", "ok"); return; }
+    allerA("projets");
+    if (!arg) { filtrer("tout"); ecrire("Section Projets.", "ok"); return; }
     if (!filtres.some(b => b.dataset.filtre === arg)) { ecrire("Filtre inconnu : " + arg + ". Tapez aide pour la liste."); return; }
     ecrire(filtrer(arg) + " projet(s) avec " + arg + ".", "ok");
   },
-  competences() { ouvrirModule("competences"); ecrire("Section Compétences ouverte.", "ok"); },
-  hobbys() { ouvrirModule("hobbys"); ecrire("Section Hobbys ouverte.", "ok"); },
+  competences() { allerA("competences"); ecrire("Section Compétences.", "ok"); },
+  hobbys() { allerA("hobbys"); ecrire("Section Hobbys.", "ok"); },
   async contact() {
     const ok = await copierMail();
     ecrire(ok ? "Adresse copiée : " + mail : "Mon adresse : " + mail, "ok");
