@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
@@ -67,7 +67,7 @@
   </details>
 
   <details class="module" id="projets">
-    <summary><span class="titre">Projets</span><span class="resume"><span id="nb-projets">7</span> projets</span></summary>
+    <summary><span class="titre">Projets</span><span class="resume"><span id="nb-projets">6</span> projets</span></summary>
     <div class="module-corps">
       <div class="filtres" role="group" aria-label="Filtrer par technologie">
         <button type="button" class="filtre actif" data-filtre="tout" aria-pressed="true">Tous</button>
@@ -102,23 +102,19 @@
         </div>
       </article>
 
-      <article class="projet" data-tags="stm32 esp32 moteurs">
-        <figure class="photo"><span>Photo à venir</span><img src="images/robot-voix.jpg" alt="Robot mobile commandé par la voix" onerror="this.remove()"></figure>
-        <div class="texte">
-          <p class="cadre">Projet d'école, ENSIBS</p>
-          <h3>Robot mobile commandé par la voix</h3>
-          <p>Un robot qui se déplace selon des ordres donnés à la voix. J'ai travaillé sur l'intégration des capteurs et des moteurs, la programmation des cartes, puis les tests jusqu'à ce que le robot réponde correctement.</p>
-          <ul class="tags"><li>STM32</li><li>ESP32</li><li>C</li><li>Capteurs</li><li>Moteurs</li></ul>
-        </div>
-      </article>
-
       <article class="projet" data-tags="arduino esp32 pcb moteurs">
-        <figure class="photo"><span>Photo à venir</span><img src="images/voiture-robot.jpg" alt="Voiture robot radiocommandée" onerror="this.remove()"></figure>
+        <figure class="photo video">
+          <video controls playsinline preload="metadata" poster="images/voiture-robot.jpg" aria-label="La voiture robot qui roule sur un parquet, avec ses fils et ses LED bleues">
+            <source src="videos/voiture-robot.mp4" type="video/mp4">
+            <a href="videos/voiture-robot.mp4">Voir la vidéo de la voiture</a>
+          </video>
+        </figure>
         <div class="texte">
           <p class="cadre">Projet perso</p>
-          <h3>Voiture robot radiocommandée</h3>
-          <p>Une voiture pilotée à distance par une liaison radio, avec des sons joués par un petit lecteur MP3. J'ai dessiné et fait fabriquer la carte électronique au Fablab de l'école.</p>
-          <ul class="tags"><li>Arduino</li><li>ESP32</li><li>NRF24L01</li><li>DFPlayer Mini</li><li>EasyEDA</li></ul>
+          <h3>Voiture robot pilotée de plusieurs façons</h3>
+          <p>Une petite voiture à quatre roues que j'ai construite pour apprendre. Au début, elle se pilotait avec une télécommande radio. Ensuite j'ai ajouté d'autres façons de la commander, dont la voix, pour essayer quelque chose de nouveau à chaque fois.</p>
+          <p>Elle joue aussi des sons avec un petit lecteur MP3. J'ai dessiné la carte électronique et je l'ai fait fabriquer au Fablab de l'école. Le câblage n'est pas encore propre, c'est un prototype, mais elle roule.</p>
+          <ul class="tags"><li>Arduino</li><li>ESP32</li><li>NRF24L01</li><li>Commande vocale</li><li>DFPlayer Mini</li><li>EasyEDA</li></ul>
         </div>
       </article>
 
