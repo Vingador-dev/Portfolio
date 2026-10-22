@@ -17,7 +17,7 @@
   <div class="wrap hero-contenu">
     <h1>Paulo<br>Tchicaya</h1>
     <p class="intro">Étudiant ingénieur en mécatronique et en master d'électronique. Je fais marcher ensemble des cartes, des capteurs et des moteurs, du dessin jusqu'aux essais.</p>
-    <p class="status"><span class="led" aria-hidden="true"></span><span>Je cherche un stage de fin d'études de 6 mois en systèmes embarqués. Début possible le 1er février 2027, <span id="compte">dans quelques semaines</span>.</span></p>
+    <p class="status"><span class="led" aria-hidden="true"></span><span>Je cherche un stage de fin d'études de 6 mois en systèmes embarqués. Début possible le 22 février 2027, <span id="compte">dans quelques semaines</span>.</span></p>
     <div class="actions">
       <button type="button" class="bouton" id="copier" data-mail="paulo.etudiant@gmail.com">Copier mon adresse mail</button>
       <a class="bouton secondaire" href="https://www.linkedin.com/in/paulo-tchicaya">LinkedIn</a>
@@ -63,7 +63,7 @@
   </details>
 
   <details class="module" id="projets">
-    <summary><span class="titre">Projets</span><span class="resume"><span id="nb-projets">6</span> projets</span></summary>
+    <summary><span class="titre">Projets</span><span class="resume"><span id="nb-projets">7</span> projets</span></summary>
     <div class="module-corps">
       <div class="filtres" role="group" aria-label="Filtrer par technologie">
         <button type="button" class="filtre actif" data-filtre="tout" aria-pressed="true">Tous</button>
@@ -84,6 +84,17 @@
           <p>Il n'existait rien sur le marché pour décortiquer les pinces de homard. J'ai conçu deux prototypes : le Casse-Dactylus, avec un système à crémaillère, et le Casse-Pince, avec un ressort qui frappe la pince.</p>
           <p>J'ai ensuite motorisé le Casse-Pince et écrit tout le programme de commande. Un capteur de distance détecte la pince, le moteur arme le ressort, et un fin de course sert de point de départ.</p>
           <ul class="tags"><li>SolidWorks</li><li>Impression 3D</li><li>NEMA17</li><li>TMC2209</li><li>Arduino</li><li>VL53L1X</li><li>C++</li></ul>
+        </div>
+      </article>
+
+      <article class="projet" data-tags="stm32 moteurs pcb">
+        <figure class="photo rendu"><span>Photo à venir</span><img src="images/base-holonome.jpg" alt="Rendu 3D de la base robotique holonome, avec ses roues omnidirectionnelles et sa batterie 12 V" onerror="this.remove()"></figure>
+        <div class="texte">
+          <p class="cadre">Projet d'école en équipe, ENSIBS</p>
+          <h3>Base robotique holonome</h3>
+          <p>Un robot rond monté sur des roues omnidirectionnelles, qui peut avancer dans n'importe quelle direction sans avoir à tourner. Des capteurs infrarouges détectent les obstacles pour qu'il se déplace tout seul.</p>
+          <p>Les moteurs pas à pas et les capteurs sont gérés par une carte STM32 Nucleo programmée en C. La carte électronique a été dessinée sous Eagle puis gravée à la CNC.</p>
+          <ul class="tags"><li>STM32 Nucleo</li><li>C</li><li>Capteurs infrarouges</li><li>Moteurs pas à pas</li><li>Eagle</li><li>CNC</li><li>SolidWorks</li></ul>
         </div>
       </article>
 

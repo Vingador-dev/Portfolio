@@ -10,3 +10,4 @@ Pour ajouter une photo, mettre le fichier dans le dossier images avec le bon nom
 - esp32-cam.jpg
 - raspberry-ia.jpg
 - imprimante-3d.jpg
+- base-holonome.jpg

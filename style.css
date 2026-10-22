@@ -506,3 +506,6 @@ kbd {
   .led, .module[open] .module-corps { animation: none; }
   body, .toast, .module summary::after { transition: none; }
 }
+
+.photo.rendu { background: #fff; }
+.photo.rendu img { object-fit: contain; }

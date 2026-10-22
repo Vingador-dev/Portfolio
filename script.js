@@ -50,7 +50,7 @@ async function copierMail() {
 
 boutonCopier.addEventListener("click", copierMail);
 
-const debut = new Date(2027, 1, 1);
+const debut = new Date(2027, 1, 22);
 const jours = Math.ceil((debut - new Date()) / 86400000);
 const compte = document.getElementById("compte");
 if (jours > 1) compte.textContent = "dans " + jours + " jours";
@@ -137,7 +137,7 @@ const commandes = {
     const ok = await copierMail();
     ecrire(ok ? "Adresse copiée : " + mail : "Mon adresse : " + mail, "ok");
   },
-  dispo() { ecrire("Stage de fin d'études de 6 mois, à temps plein, à partir du 1er février 2027. " + compte.textContent.replace(/^./, c => c.toUpperCase()) + ".", "ok"); },
+  dispo() { ecrire("Stage de fin d'études de 6 mois, à temps plein, à partir du 22 février 2027. " + compte.textContent.replace(/^./, c => c.toUpperCase()) + ".", "ok"); },
   theme() { boutonTheme.click(); ecrire("Thème changé.", "ok"); },
   clear() { sortie.innerHTML = ""; }
 };
