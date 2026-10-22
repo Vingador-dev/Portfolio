@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paulo Tchicaya, mécatronique et systèmes embarqués</title>
+<meta name="description" content="Projets de Paulo Tchicaya, étudiant ingénieur en mécatronique à l'ENSIBS et en master I-MARS. Recherche un stage de fin d'études de 6 mois à partir de février 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Paulo<br>Tchicaya</h1>
+    <p class="intro">Étudiant ingénieur en mécatronique. Je fais marcher ensemble des cartes, des capteurs et des moteurs, du dessin jusqu'aux essais.</p>
+    <p class="status"><span class="led" aria-hidden="true"></span>Je cherche un stage de fin d'études de 6 mois en systèmes embarqués, à partir de février 2027.</p>
+    <nav class="contact" aria-label="Contact">
+      <a href="mailto:paulo.etudiant@gmail.com">paulo.etudiant@gmail.com</a>
+      <a href="https://www.linkedin.com/in/paulo-tchicaya">LinkedIn</a>
+      <a href="https://github.com/Vingador-dev">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="parcours" aria-labelledby="parcours-titre">
+    <h2 id="parcours-titre">Parcours</h2>
+    <dl>
+      <div><dt>2026 – 2027</dt><dd>Master 2 I-MARS, électronique et systèmes embarqués, Université Bretagne Sud</dd></div>
+      <div><dt>2024 – 2027</dt><dd>Cycle ingénieur mécatronique, ENSIBS, Lorient (double diplôme avec I-MARS)</dd></div>
+      <div><dt>2026</dt><dd>Stage ingénieur R&amp;D chez Cinq Degrés Ouest, Lorient</dd></div>
+    </dl>
+  </section>
+
+  <section aria-labelledby="projets-titre">
+    <h2 id="projets-titre">Projets</h2>
+
+    <article class="projet">
+      <figure class="photo">
+        <span>Photo à venir</span>
+        <img src="images/casse-pince.jpg" alt="Prototype Casse-Pince motorisé" onerror="this.remove()">
+      </figure>
+      <div class="texte">
+        <p class="cadre">Stage, Cinq Degrés Ouest, 2026</p>
+        <h3>Deux machines pour casser les pinces de homard</h3>
+        <p>Il n'existait rien sur le marché pour décortiquer les pinces de homard sans abîmer la chair. J'ai conçu deux prototypes : le Casse-Dactylus, avec un système à crémaillère, et le Casse-Pince, avec un ressort qui frappe la pince.</p>
+        <p>J'ai ensuite motorisé le Casse-Pince et écrit tout le programme de commande. Un capteur de distance détecte la pince, le moteur arme le ressort, et un fin de course sert de point de départ.</p>
+        <p class="materiel">SolidWorks, impression 3D, moteur pas à pas NEMA17, driver TMC2209, Arduino, capteur ToF VL53L1X, C++ (AccelStepper)</p>
+      </div>
+    </article>
+
+    <article class="projet">
+      <figure class="photo">
+        <span>Photo à venir</span>
+        <img src="images/robot-voix.jpg" alt="Robot mobile commandé par la voix" onerror="this.remove()">
+      </figure>
+      <div class="texte">
+        <p class="cadre">Projet d'école, ENSIBS</p>
+        <h3>Robot mobile commandé par la voix</h3>
+        <p>Un robot qui se déplace selon des ordres donnés à la voix. J'ai travaillé sur l'intégration des capteurs et des moteurs, la programmation des cartes, puis les tests jusqu'à ce que le robot réponde correctement.</p>
+        <p class="materiel">STM32, ESP32, C, capteurs, pilotage de moteurs</p>
+      </div>
+    </article>
+
+    <article class="projet">
+      <figure class="photo">
+        <span>Photo à venir</span>
+        <img src="images/voiture-robot.jpg" alt="Voiture robot radiocommandée" onerror="this.remove()">
+      </figure>
+      <div class="texte">
+        <p class="cadre">Projet perso</p>
+        <h3>Voiture robot radiocommandée</h3>
+        <p>Une voiture pilotée à distance par une liaison radio, avec des sons joués par un petit lecteur MP3. J'ai dessiné et fait fabriquer la carte électronique au Fablab de l'école.</p>
+        <p class="materiel">Arduino, ESP32, module radio NRF24L01, drivers de moteurs, DFPlayer Mini, PCB sous EasyEDA</p>
+      </div>
+    </article>
+
+    <article class="projet">
+      <figure class="photo">
+        <span>Photo à venir</span>
+        <img src="images/esp32-cam.jpg" alt="Détection de visage sur ESP32-CAM" onerror="this.remove()">
+      </figure>
+      <div class="texte">
+        <p class="cadre">Projet perso</p>
+        <h3>Détection de visage sur ESP32-CAM</h3>
+        <p>Une petite caméra à quelques euros qui envoie sa vidéo en direct sur le réseau et repère les visages, directement sur la carte.</p>
+        <p class="materiel">ESP32-CAM, C++, streaming vidéo, vision embarquée</p>
+      </div>
+    </article>
+
+    <article class="projet">
+      <figure class="photo">
+        <span>Photo à venir</span>
+        <img src="images/raspberry-ia.jpg" alt="Raspberry Pi qui envoie des images à une IA" onerror="this.remove()">
+      </figure>
+      <div class="texte">
+        <p class="cadre">Projet perso</p>
+        <h3>Caméra et IA générative sur Raspberry Pi</h3>
+        <p>Un Raspberry Pi récupère l'image d'une caméra, l'envoie à une IA générative pour l'analyser, et affiche la réponse sur un écran.</p>
+        <p class="materiel">Raspberry Pi 3B, Linux, Python, API Gemini, caméra IP</p>
+      </div>
+    </article>
+
+    <article class="projet">
+      <figure class="photo">
+        <span>Photo à venir</span>
+        <img src="images/imprimante-3d.jpg" alt="Surveillance à distance de l'imprimante 3D" onerror="this.remove()">
+      </figure>
+      <div class="texte">
+        <p class="cadre">Projet perso</p>
+        <h3>Surveillance à distance de mon imprimante 3D</h3>
+        <p>Un Raspberry Pi sert de serveur vidéo pour surveiller mes impressions depuis mon téléphone, où que je sois, avec un accès sécurisé à mon réseau.</p>
+        <p class="materiel">Raspberry Pi, Linux, ustreamer, Obico, Tailscale, SSH</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="competences" aria-labelledby="competences-titre">
+    <h2 id="competences-titre">Compétences</h2>
+    <ul>
+      <li><strong>Systèmes embarqués</strong> microcontrôleurs STM32, ESP32 et Arduino en C et C++, interfaçage de capteurs et d'actionneurs, VHDL</li>
+      <li><strong>Micro-ordinateurs</strong> Raspberry Pi sous Linux, ROS, vision par ordinateur</li>
+      <li><strong>Électronique</strong> schématiques et routage de PCB (Eagle, EasyEDA), traitement du signal, MATLAB</li>
+      <li><strong>Prototypage</strong> SolidWorks, impression 3D, motorisation (moteurs pas à pas, drivers)</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="wrap pied">
+  <p>Une question sur un projet ? Écrivez-moi à <a href="mailto:paulo.etudiant@gmail.com">paulo.etudiant@gmail.com</a>.</p>
+</footer>
+
+</body>
+</html>
