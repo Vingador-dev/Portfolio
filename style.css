@@ -598,3 +598,13 @@ kbd {
   object-fit: contain;
   background: #000;
 }
+
+.capture { margin: 1.25rem 0 0; }
+.capture img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid var(--trait);
+}
+.capture figcaption { margin-top: 0.5rem; font-size: 0.9rem; color: var(--gris); }

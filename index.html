@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=6">
+<link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 
@@ -86,7 +86,7 @@
         <button type="button" class="filtre" data-filtre="esp32" aria-pressed="false">ESP32</button>
         <button type="button" class="filtre" data-filtre="stm32" aria-pressed="false">STM32</button>
         <button type="button" class="filtre" data-filtre="raspberry" aria-pressed="false">Raspberry Pi</button>
-        <button type="button" class="filtre" data-filtre="ros" aria-pressed="false">ROS 2</button>
+        <button type="button" class="filtre" data-filtre="ros" aria-pressed="false">ROS</button>
         <button type="button" class="filtre" data-filtre="moteurs" aria-pressed="false">Moteurs</button>
         <button type="button" class="filtre" data-filtre="pcb" aria-pressed="false">PCB</button>
         <button type="button" class="filtre" data-filtre="vision" aria-pressed="false">Vision et IA</button>
@@ -119,9 +119,10 @@
         <div class="texte">
           <p class="cadre">Projet d'école, ENSIBS, 4e année (2025 – 2026)</p>
           <h3>Cartographie d'une zone avec un lidar</h3>
-          <p>Un robot piloté par un Raspberry Pi sous ROS 2. Le but principal était de cartographier une zone donnée grâce à un lidar, qui mesure les distances tout autour du robot.</p>
+          <p>Un robot piloté par un Raspberry Pi, programmé sous ROS et ROS 2. Le but principal était de cartographier une zone donnée grâce à un lidar, qui mesure les distances tout autour du robot.</p>
           <p>J'ai aussi programmé un chemin à suivre, et écrit un programme pour que le robot évite les obstacles tout seul pendant qu'il avance.</p>
-          <ul class="tags"><li>ROS 2</li><li>Raspberry Pi</li><li>Lidar</li><li>Cartographie</li><li>Suivi de chemin</li><li>Évitement d'obstacles</li><li>Linux</li></ul>
+          <ul class="tags"><li>ROS</li><li>ROS 2</li><li>RViz</li><li>Raspberry Pi</li><li>Lidar</li><li>Cartographie</li><li>Suivi de chemin</li><li>Évitement d'obstacles</li><li>Linux</li></ul>
+          <figure class="capture"><img src="images/ros-rviz.jpg?v=5" alt="Vue RViz de la carte construite par le robot, avec les obstacles détectés et la zone de sécurité autour" loading="lazy"><figcaption>La carte vue dans RViz : en gris la zone explorée, en vert les obstacles détectés, en bleu la marge de sécurité autour.</figcaption></figure>
         </div>
       </article>
 
@@ -180,7 +181,7 @@
     <div class="module-corps">
       <div class="grille-comp">
         <div><h3>Systèmes embarqués</h3><p>Microcontrôleurs STM32, ESP32 et Arduino en C et C++, interfaçage de capteurs et d'actionneurs, VHDL</p></div>
-        <div><h3>Micro-ordinateurs</h3><p>Raspberry Pi sous Linux, ROS 2, lidar et cartographie, vision par ordinateur</p></div>
+        <div><h3>Micro-ordinateurs</h3><p>Raspberry Pi sous Linux, ROS et ROS 2, lidar et cartographie, vision par ordinateur</p></div>
         <div><h3>Électronique</h3><p>Schématiques et routage de PCB (Eagle, EasyEDA), traitement du signal, MATLAB</p></div>
         <div><h3>Prototypage</h3><p>SolidWorks, impression 3D, motorisation (moteurs pas à pas, drivers)</p></div>
       </div>
