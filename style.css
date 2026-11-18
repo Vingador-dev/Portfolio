@@ -114,6 +114,20 @@ html { scroll-padding-top: 4rem; }
 
 .theme:hover { color: var(--texte); }
 
+.langue {
+  flex: none;
+  height: 2.25rem;
+  padding: 0 0.4rem;
+  background: var(--fond);
+  border: 1px solid var(--trait);
+  border-radius: 6px;
+  color: var(--texte);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 .hero {
   position: relative;
   overflow: hidden;
@@ -274,7 +288,7 @@ html { scroll-padding-top: 4rem; }
 }
 
 .terminal {
-  margin: 2.5rem 0 2rem;
+  margin: 2.5rem 0 1.5rem;
   background: var(--panneau);
   border: 1px solid var(--trait);
   border-radius: 8px;
@@ -421,6 +435,29 @@ kbd {
 }
 
 .projet + .projet { border-top: 1px solid var(--trait); }
+
+.projet.large { grid-template-columns: 1fr; }
+.projet.large .texte p { max-width: 44em; }
+
+.petits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.projet.petit {
+  display: block;
+  padding: 1.25rem 1.3rem;
+  background: var(--panneau);
+  border: 1px solid var(--trait);
+  border-radius: 8px;
+}
+
+.projet.petit h3 { font-size: 1.15rem; margin-bottom: 0.6rem; }
+.projet.petit > p:not(.cadre) { margin: 0; color: var(--gris); }
+.projet.petit .tags li { background: var(--fond); }
+
 .projet[hidden] { display: none; }
 
 .photo {
@@ -501,41 +538,30 @@ kbd {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  gap: 0.8rem;
-  max-width: 36rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .langues li {
-  display: grid;
-  grid-template-columns: 6.5rem 1fr 8.5rem;
-  align-items: center;
-  gap: 1rem;
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+  padding: 0.55rem 0.95rem;
+  background: var(--panneau);
+  border: 1px solid var(--trait);
+  border-radius: 6px;
 }
 
-.langues li span:last-child { color: var(--gris); font-size: 0.95rem; }
+.langues span { color: var(--gris); font-size: 0.95rem; }
 
-.jauge {
-  height: 6px;
-  border-radius: 3px;
-  background: var(--trait);
-  position: relative;
-  overflow: hidden;
-}
-
-.jauge::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  width: var(--niveau);
-  background: var(--bleu);
-  border-radius: 3px;
-}
+.contact-texte { margin: 0 0 1.5rem; max-width: 36em; }
 
 .pied {
-  padding-top: 2.5rem;
-  padding-bottom: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 2.5rem;
   color: var(--gris);
+  font-size: 0.9rem;
 }
 
 .toast {
@@ -571,10 +597,9 @@ kbd {
   .nav-liens { flex: 1; justify-content: space-between; gap: 0.4rem; overflow-x: auto; scrollbar-width: none; }
   .nav-liens a { font-size: clamp(0.72rem, 3.3vw, 0.88rem); padding: 0.8rem 0; }
   .theme { width: 2rem; height: 2rem; }
+  .langue { height: 2rem; padding: 0 0.2rem; font-size: 0.8rem; }
   .module-tete { padding-top: 2rem; }
   .resume { display: none; }
-  .langues li { grid-template-columns: 5.5rem 1fr; }
-  .langues li span:last-child { grid-column: 2; margin-top: -0.6rem; }
   .mesure { display: none; }
 }
 

@@ -8,22 +8,59 @@ function ecrireStockage(cle, valeur) {
   try { localStorage.setItem(cle, valeur); } catch (e) {}
 }
 
+let langue = lireStockage("langue");
+if (!traductions[langue]) langue = "fr";
+
+function t(cle) {
+  return traductions[langue][cle];
+}
+
+const elements = [...document.querySelectorAll("[data-t]")];
+elements.forEach(el => { traductions.fr[el.dataset.t] = el.innerHTML; });
+
 const boutonTheme = document.getElementById("theme");
 
 function appliquerTheme(theme) {
   racine.dataset.theme = theme;
-  const libelle = theme === "dark" ? "Passer en mode clair" : "Passer en mode sombre";
+  const libelle = t(theme === "dark" ? "theme_clair" : "theme_sombre");
   boutonTheme.setAttribute("aria-label", libelle);
   boutonTheme.title = libelle;
 }
-
-appliquerTheme(lireStockage("theme") || "dark");
 
 boutonTheme.addEventListener("click", () => {
   const theme = racine.dataset.theme === "dark" ? "light" : "dark";
   appliquerTheme(theme);
   ecrireStockage("theme", theme);
 });
+
+const debut = new Date(2027, 1, 22);
+const jours = Math.ceil((debut - new Date()) / 86400000);
+const compte = document.getElementById("compte");
+
+function texteCompte() {
+  if (jours > 1) return t("jours")(jours);
+  if (jours === 1) return t("demain");
+  return t("maintenant");
+}
+
+const choixLangue = document.getElementById("langue");
+
+function appliquerLangue(nouvelle) {
+  langue = nouvelle;
+  racine.lang = nouvelle;
+  choixLangue.value = nouvelle;
+  elements.forEach(el => { el.innerHTML = t(el.dataset.t); });
+  compte.textContent = texteCompte();
+  appliquerTheme(racine.dataset.theme);
+}
+
+choixLangue.addEventListener("change", () => {
+  appliquerLangue(choixLangue.value);
+  ecrireStockage("langue", langue);
+});
+
+racine.dataset.theme = lireStockage("theme") || "dark";
+appliquerLangue(langue);
 
 const toast = document.getElementById("toast");
 let minuteur;
@@ -41,7 +78,7 @@ const mail = boutonCopier.dataset.mail;
 async function copierMail() {
   try {
     await navigator.clipboard.writeText(mail);
-    montrer("Adresse copiée : " + mail);
+    montrer(t("copie") + mail);
     return true;
   } catch (e) {
     montrer(mail);
@@ -50,13 +87,6 @@ async function copierMail() {
 }
 
 boutonCopier.addEventListener("click", copierMail);
-
-const debut = new Date(2027, 1, 22);
-const jours = Math.ceil((debut - new Date()) / 86400000);
-const compte = document.getElementById("compte");
-if (jours > 1) compte.textContent = "dans " + jours + " jours";
-else if (jours === 1) compte.textContent = "demain";
-else compte.textContent = "dès maintenant";
 
 function allerA(id) {
   document.getElementById(id).scrollIntoView();
@@ -97,37 +127,40 @@ function ecrire(texte, classe) {
   sortie.scrollTop = sortie.scrollHeight;
 }
 
+function ouvrir(id) {
+  allerA(id);
+  ecrire(t("section"), "ok");
+}
+
 const commandes = {
-  aide() {
-    ecrire("parcours      va à ma formation et mes expériences");
-    ecrire("projets       va à mes projets");
-    ecrire("projets stm32 filtre les projets (arduino, esp32, stm32, raspberry, ros, moteurs, pcb, vision)");
-    ecrire("competences   va à mes compétences");
-    ecrire("hobbys        va à mes hobbys");
-    ecrire("contact       copie mon adresse mail");
-    ecrire("dispo         affiche mes dates de stage");
-    ecrire("theme         change le thème");
-    ecrire("clear         efface le terminal");
-  },
-  parcours() { allerA("parcours"); ecrire("Section Parcours.", "ok"); },
+  aide() { t("aide").forEach(ligne => ecrire(ligne)); },
+  parcours() { ouvrir("parcours"); },
   projets(arg) {
+    if (!arg) { filtrer("tout"); ouvrir("projets"); return; }
+    if (!filtres.some(b => b.dataset.filtre === arg)) { ecrire(t("filtre_inconnu")); return; }
     allerA("projets");
-    if (!arg) { filtrer("tout"); ecrire("Section Projets.", "ok"); return; }
-    if (!filtres.some(b => b.dataset.filtre === arg)) { ecrire("Filtre inconnu : " + arg + ". Tapez aide pour la liste."); return; }
-    ecrire(filtrer(arg) + " projet(s) avec " + arg + ".", "ok");
+    ecrire(t("resultat")(filtrer(arg)), "ok");
   },
-  competences() { allerA("competences"); ecrire("Section Compétences.", "ok"); },
-  hobbys() { allerA("hobbys"); ecrire("Section Hobbys.", "ok"); },
+  competences() { ouvrir("competences"); },
+  hobbys() { ouvrir("hobbys"); },
   async contact() {
     const ok = await copierMail();
-    ecrire(ok ? "Adresse copiée : " + mail : "Mon adresse : " + mail, "ok");
+    ecrire(t(ok ? "copie" : "adresse") + mail, "ok");
   },
-  dispo() { ecrire("Stage de fin d'études de 6 mois, à temps plein, à partir du 22 février 2027. " + compte.textContent.replace(/^./, c => c.toUpperCase()) + ".", "ok"); },
-  theme() { boutonTheme.click(); ecrire("Thème changé.", "ok"); },
+  dispo() { ecrire(t("dispo") + compte.textContent + ".", "ok"); },
+  theme() { boutonTheme.click(); ecrire(t("theme_change"), "ok"); },
   clear() { sortie.innerHTML = ""; }
 };
 
-const alias = { help: "aide", compétences: "competences", hobbies: "hobbys", mail: "contact", cls: "clear" };
+const alias = {
+  help: "aide", ajuda: "aide",
+  background: "parcours", percurso: "parcours",
+  projects: "projets", projetos: "projets",
+  compétences: "competences", skills: "competences", competencias: "competences", competências: "competences",
+  hobbies: "hobbys",
+  mail: "contact", contacto: "contact",
+  cls: "clear"
+};
 
 document.getElementById("term").addEventListener("submit", e => {
   e.preventDefault();
@@ -138,11 +171,11 @@ document.getElementById("term").addEventListener("submit", e => {
   const [mot, arg] = brut.toLowerCase().split(/\s+/);
   const nom = alias[mot] || mot;
   if (commandes[nom]) commandes[nom](arg);
-  else ecrire("Commande inconnue : " + mot + ". Tapez aide.");
+  else ecrire(t("inconnue"));
 });
 
 document.addEventListener("keydown", e => {
-  if (e.key === "/" && document.activeElement !== champ) {
+  if (e.key === "/" && document.activeElement.tagName !== "INPUT") {
     e.preventDefault();
     champ.focus();
   }
