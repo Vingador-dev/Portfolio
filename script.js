@@ -8,7 +8,8 @@ function ecrireStockage(cle, valeur) {
   try { localStorage.setItem(cle, valeur); } catch (e) {}
 }
 
-let langue = lireStockage("langue");
+const parametre = new URLSearchParams(location.search).get("lang");
+let langue = traductions[parametre] ? parametre : lireStockage("langue");
 if (!traductions[langue]) langue = "fr";
 
 function t(cle) {
@@ -17,6 +18,10 @@ function t(cle) {
 
 const elements = [...document.querySelectorAll("[data-t]")];
 elements.forEach(el => { traductions.fr[el.dataset.t] = el.innerHTML; });
+
+const description = document.querySelector('meta[name="description"]');
+traductions.fr.titre_page = document.title;
+traductions.fr.description_page = description.content;
 
 const boutonTheme = document.getElementById("theme");
 
@@ -51,6 +56,8 @@ function appliquerLangue(nouvelle) {
   choixLangue.value = nouvelle;
   elements.forEach(el => { el.innerHTML = t(el.dataset.t); });
   compte.textContent = texteCompte();
+  document.title = t("titre_page");
+  description.content = t("description_page");
   appliquerTheme(racine.dataset.theme);
 }
 
@@ -181,10 +188,54 @@ document.addEventListener("keydown", e => {
   }
 });
 
+const zoom = document.getElementById("zoom");
+const imageZoom = zoom.querySelector("img");
+
+document.querySelectorAll(".photo img, .capture img").forEach(img => {
+  img.addEventListener("click", () => {
+    imageZoom.src = img.src;
+    imageZoom.alt = img.alt;
+    zoom.hidden = false;
+  });
+});
+
+zoom.addEventListener("click", () => { zoom.hidden = true; });
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") zoom.hidden = true;
+});
+
+const liensNav = [...document.querySelectorAll(".nav-liens a")];
+
+const suiviNav = new IntersectionObserver(entrees => {
+  entrees.forEach(entree => {
+    if (!entree.isIntersecting) return;
+    liensNav.forEach(a => a.classList.toggle("actif", a.getAttribute("href") === "#" + entree.target.id));
+  });
+}, { rootMargin: "-45% 0px -50% 0px" });
+
+document.querySelectorAll(".module").forEach(section => suiviNav.observe(section));
+
+const calme = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (!calme) {
+  racine.classList.add("anime");
+  const apparition = new IntersectionObserver(entrees => {
+    entrees.forEach(entree => {
+      if (!entree.isIntersecting) return;
+      entree.target.classList.add("vu");
+      apparition.unobserve(entree.target);
+    });
+  }, { rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll(".module-tete, .ligne-temps li, .projet, .grille-comp > div, .terminal").forEach(el => {
+    el.classList.add("apparait");
+    apparition.observe(el);
+  });
+}
+
 const canvas = document.getElementById("scope");
 const ctx = canvas.getContext("2d");
 const mesure = document.getElementById("mesure");
-const calme = matchMedia("(prefers-reduced-motion: reduce)").matches;
 let largeur, hauteur, ratio;
 let frequence = 2, amplitude = 0.22, cibleF = 2, cibleA = 0.22, phase = 0;
 

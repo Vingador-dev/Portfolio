@@ -12,10 +12,8 @@
 <meta property="og:image" content="https://paulotchicaya.fr/images/casse-pince.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a1426'/%3E%3Cpath d='M6 34h10l6-16 10 30 8-22 4 8h14' fill='none' stroke='%235b93ff' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="preload" href="polices/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
 
@@ -52,7 +50,6 @@
         <a class="bouton" href="CV_Paulo_TCHICAYA.pdf" target="_blank" rel="noopener" data-t="cv">Télécharger mon CV</a>
         <button type="button" class="bouton secondaire" id="copier" data-mail="paulo.etudiant@gmail.com" data-t="copier">Copier mon adresse mail</button>
         <a class="bouton secondaire" href="https://www.linkedin.com/in/paulo-tchicaya">LinkedIn</a>
-        <a class="bouton secondaire" href="https://github.com/Vingador-dev">GitHub</a>
       </div>
     </div>
     <figure class="portrait"><img src="images/photo.jpg?v=5" alt="Photo de Paulo Tchicaya" width="800" height="1200"></figure>
@@ -211,7 +208,6 @@
         <a class="bouton" href="mailto:paulo.etudiant@gmail.com">paulo.etudiant@gmail.com</a>
         <a class="bouton secondaire" href="CV_Paulo_TCHICAYA.pdf" target="_blank" rel="noopener" data-t="cv">Télécharger mon CV</a>
         <a class="bouton secondaire" href="https://www.linkedin.com/in/paulo-tchicaya">LinkedIn</a>
-        <a class="bouton secondaire" href="https://github.com/Vingador-dev">GitHub</a>
       </div>
     </div>
   </section>
@@ -232,9 +228,11 @@
   <p>Paulo Tchicaya, Lorient.</p>
 </footer>
 
+<div class="zoom" id="zoom" hidden><img alt=""></div>
+
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="traductions.js?v=8"></script>
-<script src="script.js?v=8"></script>
+<script src="traductions.js?v=9"></script>
+<script src="script.js?v=9"></script>
 </body>
 </html>

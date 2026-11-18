@@ -27,6 +27,8 @@ const traductions = {
   },
 
   en: {
+    titre_page: "Paulo Tchicaya, mechatronics and embedded systems",
+    description_page: "Projects of Paulo Tchicaya, engineering student in mechatronics at ENSIBS and in the I-MARS master's. Looking for a 6-month final-year internship from February 2027.",
     nav_parcours: "Background",
     nav_projets: "Projects",
     nav_comp: "Skills",
@@ -147,6 +149,8 @@ const traductions = {
   },
 
   pt: {
+    titre_page: "Paulo Tchicaya, mecatrónica e sistemas embarcados",
+    description_page: "Projetos de Paulo Tchicaya, estudante de engenharia mecatrónica na ENSIBS e no mestrado I-MARS. Procura um estágio de fim de curso de 6 meses a partir de fevereiro de 2027.",
     nav_parcours: "Percurso",
     nav_projets: "Projetos",
     nav_comp: "Competências",
