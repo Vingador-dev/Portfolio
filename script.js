@@ -1,5 +1,8 @@
 const racine = document.documentElement;
 
+const origine = new URLSearchParams(location.search).get("r");
+window.goatcounter = { path: () => location.pathname + (origine ? "?r=" + origine.toLowerCase() : "") };
+
 function lireStockage(cle) {
   try { return localStorage.getItem(cle); } catch (e) { return null; }
 }
